@@ -22,6 +22,16 @@
       "continue": true
     },
     {
+      "src": "/staff/?",
+      "has": [
+        {
+          "type": "host",
+          "value": "order.onamveg.in"
+        }
+      ],
+      "dest": "/ordering/index.html"
+    },
+    {
       "src": "/(?:index.html)?",
       "has": [
         {
