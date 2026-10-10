@@ -4,11 +4,12 @@
   "buildCommand": "",
   "installCommand": "",
   "outputDirectory": "dist",
-  "rewrites": [
+  "routes": [
     {
-      "source": "/",
+      "src": "/(?:index.html)?",
       "has": [{ "type": "host", "value": "order.onamveg.in" }],
-      "destination": "/order-coming-soon.html"
-    }
+      "dest": "/order-coming-soon.html"
+    },
+    { "handle": "filesystem" }
   ]
 }
