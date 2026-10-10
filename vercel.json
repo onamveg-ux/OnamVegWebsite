@@ -3,5 +3,12 @@
   "framework": null,
   "buildCommand": "",
   "installCommand": "",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "order.onamveg.in" }],
+      "destination": "/order-coming-soon.html"
+    }
+  ]
 }
