@@ -14,7 +14,8 @@ for source in (root / 'dist').iterdir():
     else: shutil.copy2(source, restaurant / source.name)
 shutil.copytree(root / 'dist/ordering', ordering / 'ordering')
 shutil.copy2(root / 'dist/ordering/index.html', ordering / 'index.html')
-(ordering / '_redirects').write_text('/staff /index.html 200\n/staff/ /index.html 200\n', encoding='utf-8')
+(ordering / 'staff').mkdir()
+shutil.copy2(root / 'dist/ordering/index.html', ordering / 'staff/index.html')
 headers = json.loads((root / 'vercel.json').read_text(encoding='utf-8-sig'))['routes'][0]['headers']
 (ordering / '_headers').write_text('/*\n' + ''.join('  '+k+': '+v+'\n' for k,v in headers.items()) + '/ordering/config.json\n  Cache-Control: no-store\n', encoding='utf-8')
 print('Cloudflare output prepared in', out)
