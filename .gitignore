@@ -7,3 +7,6 @@ preview.png
 node_modules/
 *.tar.gz
 *.log
+
+.wrangler/
+.cloudflare/
