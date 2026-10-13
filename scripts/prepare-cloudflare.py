@@ -18,4 +18,7 @@ shutil.copy2(root / 'dist/ordering/index.html', ordering / 'index.html')
 shutil.copy2(root / 'dist/ordering/index.html', ordering / 'staff/index.html')
 headers = json.loads((root / 'vercel.json').read_text(encoding='utf-8-sig'))['routes'][0]['headers']
 (ordering / '_headers').write_text('/*\n' + ''.join('  '+k+': '+v+'\n' for k,v in headers.items()) + '/ordering/config.json\n  Cache-Control: no-store\n', encoding='utf-8')
+(restaurant / '_headers').write_text('/images/*\n  Cache-Control: public, max-age=604800\n/assets/*\n  Cache-Control: public, max-age=604800\n', encoding='utf-8')
+with (ordering / '_headers').open('a', encoding='utf-8') as f:
+    f.write('/ordering/images/*\n  Cache-Control: public, max-age=604800\n/ordering/assets/*\n  Cache-Control: public, max-age=604800\n')
 print('Cloudflare output prepared in', out)
